@@ -8,3 +8,4 @@ class query_context(context):
     
     def get_all(self,collection_name):
         return context.db[collection_name]
+
