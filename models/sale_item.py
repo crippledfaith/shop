@@ -1,8 +1,8 @@
 import uuid
 class sale_item:
     _id=""
-    saleid=""
-    itemid=""
+    sale_id=""
+    item_id=""
     price=0
     quantity=0
     discount=0
@@ -12,7 +12,7 @@ class sale_item:
 
     def __init__(self,dic):
         self._id=dic["_id"]
-        self.saleid=dic["saleid"]
-        self.itemid=dic["itemid"]
+        self.sale_id=dic["sale_id"]
+        self.item_id=dic["item_id"]
         self.quantity=dic["quantity"]
         self.discount=dic["discount"]

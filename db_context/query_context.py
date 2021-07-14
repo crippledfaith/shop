@@ -8,4 +8,6 @@ class query_context(context):
     
     def get_all(self,collection_name):
         return context.db[collection_name]
-
+    
+    def get_all_by_condition(self,collection_name,query):
+        return context.db[collection_name].find(query)
