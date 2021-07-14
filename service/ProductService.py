@@ -33,6 +33,6 @@ class ProductService:
         else:
             categories = []
         for item in categories:
-            category_list.append(category.from_dict(item))
+            category_list.append(Category.from_dict(item))
 
         return category_list
