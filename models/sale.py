@@ -9,8 +9,9 @@ class sale:
 
     def __init__(self):
         self._id = str(uuid.uuid4())
-
-    def __init__(self,dic):
+        
+    @classmethod
+    def from_dict(self,dic):
         self._id=dic["_id"]
         self.customer_id=dic["customer_id"]
         self.discount=dic["discount"]

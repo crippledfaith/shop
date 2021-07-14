@@ -30,10 +30,10 @@ class product_service:
         categoryList =[]
         categories=[]
         if(level==0):
-            categories=self.context.get_all_by_condition("category",'{ "level":0 }')
+            categories=self.context.get_all_by_condition("category",{ "level":0 })
         else:
             categories = []
         for cotegory in categories:
-            categoryList.append(category(cotegory))
+            categoryList.append(category.from_dict(cotegory))
 
         return categoryList
