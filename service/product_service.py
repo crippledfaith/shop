@@ -1,6 +1,13 @@
-class product_service:
+from db_context.query_context import query_context
 
-    def add_category(self):
+
+class product_service:
+    def __init__(self) -> None:
+        self.context = query_context()
+        
+    
+    def add_category(self,obj):
+        self.context.save("category",obj.__dict__)
         return
 
     def add_product(self):
