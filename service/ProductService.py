@@ -11,15 +11,15 @@ class ProductService:
         return
 
     def add_product(self, obj):
-        self.context.save('Products', obj.__dict__)
+        self.context.save('product', obj.__dict__)
         return
 
     def update_category(self, obj):
-        self.context.update('Category', obj.__dict__)
+        self.context.update('category', obj.__dict__)
         return
 
     def update_product(self, obj):
-        self.context.update('Products', obj.__dict__)
+        self.context.update('product', obj.__dict__)
         return
 
     def delete_category(self):
