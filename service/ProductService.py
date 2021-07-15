@@ -8,25 +8,21 @@ class ProductService:
 
     def add_category(self, obj):
         self.context.save("category", obj.__dict__)
-        return
 
     def add_product(self, obj):
         self.context.save('product', obj.__dict__)
-        return
 
     def update_category(self, obj):
         self.context.update('category', obj.__dict__)
-        return
 
     def update_product(self, obj):
         self.context.update('product', obj.__dict__)
-        return
 
-    def delete_category(self):
-        return
+    def delete_category(self,obj):
+        self.context.delete('category', obj.__dict__)
 
-    def delete_product(self):
-        return
+    def delete_product(self,obj):
+        self.context.delete('product', obj.__dict__)
 
     def get_categories(self, level, parent_id):
         category_list = []
