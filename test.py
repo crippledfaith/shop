@@ -1,6 +1,6 @@
 from service.ProductService import ProductService
-from models.Category import Category
-from models.Product import Product
+from model.Category import Category
+from model.Product import Product
 from db_context. QueryContext import QueryContext
 
 

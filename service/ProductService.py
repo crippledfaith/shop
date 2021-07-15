@@ -1,4 +1,4 @@
-from models.Category import Category
+from model.Category import Category
 from db_context.QueryContext import QueryContext
 
 
