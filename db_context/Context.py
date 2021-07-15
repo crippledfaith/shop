@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from random import randint
 
 
 class Context:
@@ -12,7 +11,8 @@ class Context:
         return
     
     def update(self, collection_name, obj):
-        self.db[collection_name].find_one_and_update({'_id':})
+        self.db[collection_name].find_one_and_update({"_id": obj["_id"]}, {"$set": obj}, upsert=True)
+
         return
 
     def delete(self, collection_name, obj):

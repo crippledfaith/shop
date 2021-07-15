@@ -56,4 +56,4 @@ def update_products():
     service.update_product(product)
 
 
-add_products()
+update_products()
