@@ -2,15 +2,14 @@ import uuid
 
 
 class SaleItem:
-    _id = ""
-    sale_id = ""
-    item_id = ""
-    price = 0
-    quantity = 0
-    discount = 0
 
     def __init__(self):
         self._id = str(uuid.uuid4())
+        self.sale_id = ""
+        self.item_id = ""
+        self.price = 0
+        self.quantity = 0
+        self.discount = 0
 
     @classmethod
     def from_dict(cls, dic):
@@ -19,3 +18,4 @@ class SaleItem:
         cls.item_id = dic["item_id"]
         cls.quantity = dic["quantity"]
         cls.discount = dic["discount"]
+        return cls

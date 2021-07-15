@@ -3,15 +3,16 @@ import uuid
 
 class Product:
     _id = ""
-    category_id = ""
-    name = ""
-    unit = ""
-    mrp = 0
-    price = 0
-    tag = []
+
 
     def __init__(self):
         self._id = str(uuid.uuid4())
+        self.category_id = ""
+        self.name = ""
+        self.unit = ""
+        self.mrp = 0
+        self.price = 0
+        self.tag = []
 
     @classmethod
     def from_dict(cls, dic):
@@ -22,3 +23,4 @@ class Product:
         cls.mrp = dic["mrp"]
         cls.price = dic["price"]
         cls.tag = dic["tag"]
+        return cls

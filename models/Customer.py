@@ -2,13 +2,12 @@ import uuid
 
 
 class Customer:
-    _id = ""
-    name = ""
-    email = ""
-    password = ""
-
+    
     def __init__(self):
         self._id = str(uuid.uuid4())
+        self.name = ""
+        self.email = ""
+        self.password = ""
 
     @classmethod
     def from_dict(cls, dic):
@@ -16,3 +15,4 @@ class Customer:
         cls.name = dic["name"]
         cls.email = dic["email"]
         cls.password = dic["password"]
+        return cls

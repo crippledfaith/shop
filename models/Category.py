@@ -2,10 +2,14 @@ import uuid
 
 
 class Category:
-    _id = ""
-    name = ""
-    level = 0
-    parent_id = ""
+
+
+    def __init__(self):
+        self._id = str(uuid.uuid4())
+        self.name = ""
+        self.level = 0
+        self.parent_id = ""
+        
 
     @classmethod
     def from_dict(cls, dic):
@@ -15,5 +19,3 @@ class Category:
         cls.level = dic["level"]
         return cls
 
-    def __init__(self):
-        self._id = str(uuid.uuid4())

@@ -2,15 +2,15 @@ import uuid
 
 
 class Sale:
-    _id = ""
-    customer_id = ""
-    discount = 0
-    tax = 0
-    delivery_charge = 0
-    is_paid = False
+
 
     def __init__(self):
         self._id = str(uuid.uuid4())
+        self.customer_id = ""
+        self.discount = 0
+        self.tax = 0
+        self.delivery_charge = 0
+        self.is_paid = False
 
     @classmethod
     def from_dict(cls, dic):
@@ -20,3 +20,4 @@ class Sale:
         cls.tax = dic["tax"]
         cls.delivery_charge = dic["delivery_charge"]
         cls.is_paid = dic["is_paid"]
+        return cls

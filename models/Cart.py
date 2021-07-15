@@ -2,11 +2,10 @@ import uuid
 
 
 class Cart:
-    _id = ""
-    sale_id = ""
-
+    
     def __init__(self):
         self._id = str(uuid.uuid4())
+        self.sale_id = ""
 
     @classmethod
     def from_dict(cls, dic):

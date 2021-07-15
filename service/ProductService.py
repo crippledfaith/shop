@@ -5,7 +5,7 @@ from db_context.QueryContext import QueryContext
 class ProductService:
     def __init__(self) -> None:
         self.context = QueryContext()
-        
+
     def add_category(self, obj):
         self.context.save("category", obj.__dict__)
         return
@@ -13,7 +13,7 @@ class ProductService:
     def add_product(self, obj):
         self.context.save('Products', obj.__dict__)
         return
-    
+
     def update_category(self, obj):
         self.context.update('Category', obj.__dict__)
         return
@@ -21,7 +21,7 @@ class ProductService:
     def update_product(self, obj):
         self.context.update('Products', obj.__dict__)
         return
-    
+
     def delete_category(self):
         return
 
