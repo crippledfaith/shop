@@ -6,7 +6,7 @@ class ProductService:
     def __init__(self) -> None:
         self.context = QueryContext()
 
-    def add_category(self, obj):
+    def add_category(self, obj)->None:
         self.context.save("category", obj.__dict__)
 
     def add_product(self, obj):

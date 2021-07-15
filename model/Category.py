@@ -1,21 +1,14 @@
-import uuid
+from model.BaseModel import BaseModel
 
 
-class Category:
-
+class Category(BaseModel):
 
     def __init__(self):
-        self._id = str(uuid.uuid4())
+        super().__init__()
         self.name = ""
         self.level = 0
         self.parent_id = ""
         
 
-    @classmethod
-    def from_dict(cls, dic):
-        cls._id = dic["_id"]
-        cls.parent_id = dic["parent_id"]
-        cls.name = dic["name"]
-        cls.level = dic["level"]
-        return cls
+   
 

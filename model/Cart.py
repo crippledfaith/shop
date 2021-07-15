@@ -1,14 +1,10 @@
-import uuid
+from model.BaseModel import BaseModel
 
 
-class Cart:
+class Cart(BaseModel):
     
     def __init__(self):
-        self._id = str(uuid.uuid4())
+        super().__init__()
         self.sale_id = ""
 
-    @classmethod
-    def from_dict(cls, dic):
-        cls._id = dic["_id"]
-        cls.sale_id = dic["sale_id"]
 

@@ -1,12 +1,11 @@
-import uuid
+from model.BaseModel import BaseModel
 
 
-class Product:
-    _id = ""
 
+class Product(BaseModel):
 
     def __init__(self):
-        self._id = str(uuid.uuid4())
+        super().__init__()
         self.category_id = ""
         self.name = ""
         self.unit = ""
@@ -14,13 +13,3 @@ class Product:
         self.price = 0
         self.tag = []
 
-    @classmethod
-    def from_dict(cls, dic):
-        cls._id = dic["_id"]
-        cls.category_id = dic["category_id"]
-        cls.name = dic["name"]
-        cls.unit = dic["unit"]
-        cls.mrp = dic["mrp"]
-        cls.price = dic["price"]
-        cls.tag = dic["tag"]
-        return cls

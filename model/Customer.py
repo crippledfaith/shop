@@ -1,18 +1,11 @@
-import uuid
+from model.BaseModel import BaseModel
 
 
-class Customer:
+class Customer(BaseModel):
+
     
     def __init__(self):
-        self._id = str(uuid.uuid4())
+        super().__init__()
         self.name = ""
         self.email = ""
         self.password = ""
-
-    @classmethod
-    def from_dict(cls, dic):
-        cls._id = dic["_id"]
-        cls.name = dic["name"]
-        cls.email = dic["email"]
-        cls.password = dic["password"]
-        return cls

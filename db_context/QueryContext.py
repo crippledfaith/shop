@@ -6,7 +6,7 @@ class QueryContext(Context):
         super().__init__()
 
     def get_item_by_id(self, collection_name, item_id):
-        return
+        return self.db[collection_name].find_one({"_id": item_id})
     
     def get_all(self, collection_name):
         return self.db[collection_name]
