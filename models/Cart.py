@@ -12,3 +12,4 @@ class Cart:
     def from_dict(cls, dic):
         cls._id = dic["_id"]
         cls.sale_id = dic["sale_id"]
+
