@@ -38,23 +38,24 @@ def add_products():
 
 
 def update_products():
-    _id = input('id: ')
-    name = input('new name: ')
-    category_id = input('category id: ')
-    price = input('new price: ')
-    mrp = input('new mrp: ')
-    unit = input('unit: ')
-    tag = input('tag: ')
+    # _id = input('id: ')
+    # name = input('new name: ')
+    # category_id = input('category id: ')
+    # price = input('new price: ')
+    # mrp = input('new mrp: ')
+    # unit = input('unit: ')
+    # tag = input('tag: ')
+    service = ProductService()
     service = ProductService()
     vv= service.get_categories(0,None)
-    product = Product()
-    product._id = _id
-    product.name = name
-    product.category_id = category_id
-    product.unit = unit
-    product.price = price
-    product.tag = tag
-    service.update_product(product)
+    # product = Product()
+    # product._id = _id
+    # product.name = name
+    # product.category_id = category_id
+    # product.unit = unit
+    # product.price = price
+    # product.tag = tag
+    # service.update_product(product)
 
 
 update_products()

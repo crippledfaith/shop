@@ -3,8 +3,14 @@ from db_context.QueryContext import QueryContext
 
 
 class ProductService:
-    def __init__(self) -> None:
-        self.context = QueryContext()
+
+    __instance = None
+    def __new__(cls, *args):
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls, *args)
+            cls.__instance.context = QueryContext()
+        return cls.__instance
+
 
     def add_category(self, obj)->None:
         self.context.save("category", obj.__dict__)
