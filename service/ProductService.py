@@ -36,8 +36,8 @@ class ProductService:
         if level == 0:
             categories = self.context.get_all_by_condition("category", {"level": 0})
         else:
-            categories = []
+            categories = self.context.get_all_by_condition("category", {"$and":[{"level": level},{"parent_id": parent_id}]})
         for item in categories:
-            category_list.append(Category.from_dict(item))
+            category_list.append(Category().from_dict(item))
 
         return category_list
