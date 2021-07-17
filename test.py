@@ -2,7 +2,7 @@ from service.ProductService import ProductService
 from model.Category import Category
 from model.Product import Product
 from db_context. QueryContext import QueryContext
-
+from helper.CommonHelper import CommonHelper
 
 def add_category():
     name = input("Category name: ")
@@ -66,5 +66,5 @@ find = ProductService()
 # print( type(find))
 # print(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a'))
 # print(type(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a')))
-found = find.get_products_by_category(None)
-print(found)
+found = find.get_products_by_category('asd')
+print(CommonHelper.objlist_to_dict(found))

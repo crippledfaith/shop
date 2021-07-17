@@ -31,7 +31,7 @@ class CatagoryApi(Resource):
             list_of_categories = self.service.get_categories(0, None)
         else:
             list_of_categories = self.service.get_categories(level, parent_id)
-        return CommonHelper().objlist_to_dict(list_of_categories)
+        return CommonHelper.objlist_to_dict(list_of_categories)
 
     def put(self):
         args = put_parser.parse_args()
