@@ -55,8 +55,9 @@ class ProductService:
         return products_list
 
     def get_product(self, product_id):
-        return self.context.get_item_by_id('product', product_id)
-        #return self
+        product = self.context.get_item_by_id('product', product_id)
+        return Product().from_dict(product)
 
     def get_category(self, category_id):
-        return self.context.get_item_by_id('category', category_id)
+        category =  self.context.get_item_by_id('category', category_id)
+        return Category().from_dict(category)
