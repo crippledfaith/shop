@@ -45,7 +45,6 @@ def update_products():
     # unit = input('unit: ')
     # tag = input('tag: ')
     service = ProductService()
-    service = ProductService()
     vv = service.get_categories(0, None)
     # product = Product()
     # product._id = _id
