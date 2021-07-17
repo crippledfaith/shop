@@ -34,7 +34,6 @@ def add_products():
     product.price = price
     product.tag = tag
     service.add_product(product)
-    add_category()
 
 
 def update_products():
@@ -47,7 +46,7 @@ def update_products():
     # tag = input('tag: ')
     service = ProductService()
     service = ProductService()
-    vv= service.get_categories(0,None)
+    vv = service.get_categories(0, None)
     # product = Product()
     # product._id = _id
     # product.name = name
@@ -57,5 +56,15 @@ def update_products():
     # product.tag = tag
     # service.update_product(product)
 
+ # object return, test, object __dict__ _> view
 
-update_products()
+#add_products()
+#add_category()
+find = ProductService()
+#found = find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a')
+#found= find.get_products_by_category(2)
+# print( type(find))
+# print(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a'))
+# print(type(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a')))
+found = find.get_products_by_category(None)
+print(found)

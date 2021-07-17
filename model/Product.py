@@ -1,7 +1,6 @@
 from model.BaseModel import BaseModel
 
 
-
 class Product(BaseModel):
 
     def __init__(self):
