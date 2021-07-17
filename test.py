@@ -3,6 +3,9 @@ from model.Category import Category
 from model.Product import Product
 from db_context. QueryContext import QueryContext
 from helper.CommonHelper import CommonHelper
+from service.CustomerService import CustomerService
+from model.Customer import Customer
+
 
 def add_category():
     name = input("Category name: ")
@@ -37,32 +40,62 @@ def add_products():
 
 
 def update_products():
-    # _id = input('id: ')
-    # name = input('new name: ')
-    # category_id = input('category id: ')
-    # price = input('new price: ')
-    # mrp = input('new mrp: ')
-    # unit = input('unit: ')
-    # tag = input('tag: ')
-    service = ProductService()
-    service = ProductService()
-    vv = service.get_categories(0, None)
-    # product = Product()
-    # product._id = _id
-    # product.name = name
-    # product.category_id = category_id
-    # product.unit = unit
-    # product.price = price
-    # product.tag = tag
-    # service.update_product(product)
+   return
 
- # object return, test, object __dict__ _> view
 
-#add_products()
-#add_category()
+def view_product():
+    id = input('id: ')
+    service = ProductService()
+    product = Product()
+    product.__id = id
+    return service.get_product(product)
+
+def add_customer():
+    name = input('name: ')
+    email = input('email: ')
+    password = input('password: ')
+    service = CustomerService()
+    customer = Customer()
+    customer.name = name
+    customer.email = email
+    customer.password = password
+    service.add_customer(customer)
+
+
+def update_customer():
+    id = input('id: ')
+    name = input('name:')
+    email = input('email: ')
+    password = input('password: ')
+    service = CustomerService()
+    customer = Customer()
+    customer._id = id
+    customer.name = name
+    customer.email = email
+    customer.password = password
+    service.update_customer(customer)
+
+
+def get_all_customers():
+    service = CustomerService()
+    print(CommonHelper.objlist_to_dict(service.get_customers()))
+
+
+def delete_customer():
+    id = input('Id: ')
+    service = CustomerService()
+    customer = Customer()
+    customer._id = id
+    service.delete_customer(customer)
+
+
+def get_customer():
+    id = input('id: ')
+    service = CustomerService()
+    customer = Customer()
+    customer._id = id
+    service.get_customer(customer)
+
 find = ProductService()
-#found = find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a')
-#found= find.get_products_by_category(2)
-# print( type(find))
-print(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a'))
-print(type(find.get_product('52e49afd-95a6-4a4d-acef-cfa1104bbe7a')))
+found = find.get_product('c0398c34-0f51-4192-b33f-ab50c1899ae7').__dict__
+
