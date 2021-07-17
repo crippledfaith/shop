@@ -8,6 +8,8 @@ class BaseModel:
         self._id = str(uuid.uuid4())
 
     def from_dict(self, dic):
+        if dic==None:
+            return None
         for name_value in dic.keys():
             setattr(self, name_value, dic[name_value])
         return self
