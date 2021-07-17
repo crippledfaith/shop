@@ -12,11 +12,17 @@ class CustomerService():
         
 
 
-    def add_customer(self):
+    def add_customer(self, obj):
         return
 
-    def update_customer(self):
+    def update_customer(self, obj):
         return
 
-    def delete_customer(self):
+    def delete_customer(self, obj):
+        return
+    
+    def get_customers(self):
+        return
+
+    def get_customer(self, customer_id):
         return
