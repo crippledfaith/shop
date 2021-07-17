@@ -44,13 +44,16 @@ class ProductApi(Resource):
             list_of_products = self.service.get_products(category_id)
         elif product_id and not category_id:
             product = self.service.get_product(product_id)
-            return product.__dict__
+            if product==None:
+                return {}
+            return  product.__dict__
         return CommonHelper().objlist_to_dict(list_of_products)
 
     def put(self):
         args = put_parser.parse_args()
         product = Product().from_dict(args)
-        self.service.add_product(product)
+        if not self.service.add_product(product):
+            return  "Invalid Data",400 
         return product.__dict__
     
     def delete(self):
