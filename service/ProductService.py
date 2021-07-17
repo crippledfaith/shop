@@ -42,7 +42,7 @@ class ProductService:
             category_list.append(Category().from_dict(item))
         return category_list
 
-    def get_products_by_category(self, category_id):
+    def get_products(self, category_id):
         products = []
         products_list = []
         if category_id: 

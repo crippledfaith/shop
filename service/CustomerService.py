@@ -28,6 +28,5 @@ class CustomerService():
         return customer_list
 
     def get_customer(self, customer_id):
-        # customer = self.context.get_item_by_id('customer', customer_id)
-        # return Customer().from_dict(customer)
-        return self.context.get_item_by_id('customer', customer_id)
+        customer = self.context.get_item_by_id('customer', customer_id)
+        return Customer().from_dict(customer)
