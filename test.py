@@ -43,12 +43,11 @@ def update_products():
    return
 
 
-def view_product():
+def get_product():
     id = input('id: ')
     service = ProductService()
-    product = Product()
-    product.__id = id
-    return service.get_product(product)
+    print(service.get_product(id).__dict__)
+
 
 def add_customer():
     name = input('name: ')
@@ -92,10 +91,7 @@ def delete_customer():
 def get_customer():
     id = input('id: ')
     service = CustomerService()
-    customer = Customer()
-    customer._id = id
-    service.get_customer(customer)
+    print(service.get_customer(id).__dict__)
 
-find = ProductService()
-found = find.get_product('c0398c34-0f51-4192-b33f-ab50c1899ae7').__dict__
+get_product()
 
