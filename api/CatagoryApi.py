@@ -1,8 +1,7 @@
-from service.CategoryService import CategoryService
 from helper.CommonHelper import CommonHelper
-from model.Category import Category
 from flask_restful import Resource, reqparse
-import json
+from model.Category import Category
+from service.CategoryService import CategoryService
 
 get_parser = reqparse.RequestParser()
 get_parser.add_argument('level', type=int, required=False)
@@ -18,6 +17,7 @@ put_parser.add_argument('parent_id', type=str,
 
 delete_parser = reqparse.RequestParser()
 delete_parser.add_argument('_id', type=str, required=True)
+
 
 class CatagoryApi(Resource):
 
@@ -38,13 +38,14 @@ class CatagoryApi(Resource):
     def put(self):
         args = put_parser.parse_args()
         product = Category().from_dict(args)
-        self.service.add_category(product)
+        if not self.service.add_category(product):
+            return "Invalid Data", 400
         return product.__dict__
-    
+
     def delete(self):
         args = delete_parser.parse_args()
         product = Category().from_dict(args)
-        if not self.service.add_category(product):
-            return  "Invalid Data",400 
+        if not self.service.delete_category(product):
+            return "Invalid Data", 400
         self.service.delete_product(product)
-        return
+        return "Success", 200
