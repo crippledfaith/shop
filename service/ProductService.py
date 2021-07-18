@@ -22,8 +22,9 @@ class ProductService:
         return True
 
     def update_product(self, obj):
+        main_product = None
         if obj._id != "":
-            product = self.get_product(obj._id)
+            main_product = self.get_product(obj._id)
             if product is None:
                 return False
         else:
@@ -34,7 +35,7 @@ class ProductService:
                 return False
         name_exits = self.context.get_all_by_condition(
             "product", {"name": obj.name}).count()
-        if name_exits > 0:
+        if main_product.name != obj.name and name_exits > 0:
             return False
         self.context.update('product', obj.__dict__)
 

@@ -25,9 +25,10 @@ class CategoryService:
         return True
 
     def update_category(self, obj):
+        main_category = None
         if obj._id != "":
-            category = self.get_category(obj._id)
-            if category is None:
+            main_category = self.get_category(obj._id)
+            if main_category is None:
                 return False
         else:
             return False
@@ -35,6 +36,10 @@ class CategoryService:
             category = self.get_category(obj.parent_id)
             if category is None:
                 return False
+        name_exits = self.context.get_all_by_condition(
+            "category", {"name": obj.name}).count()
+        if main_category.name != obj.name and name_exits > 0:
+            return False
         self.context.update('category', obj.__dict__)
         return True
 
