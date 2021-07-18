@@ -27,7 +27,7 @@ class CategoryService:
     def update_category(self, obj):
         if obj._id != "":
             category = self.get_category(obj._id)
-            if not category:
+            if category is None:
                 return False
         else:
             return False

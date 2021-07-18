@@ -10,11 +10,11 @@ class CustomerService():
             cls.__instance = object.__new__(cls, *args)
             cls.__instance.context = QueryContext()
         return cls.__instance
-        
+
     def add_customer(self, obj):
         name_exits = self.context.get_all_by_condition(
-            'customer', {'email': obj.name}).
-        )
+            'customer', {'email': obj.name}).count()
+            
         self.context.save('customer', obj.__dict__)
 
     def update_customer(self, obj):
@@ -22,7 +22,7 @@ class CustomerService():
 
     def delete_customer(self, obj):
         self.context.delete('customer', obj.__dict__)
-    
+
     def get_customers(self):
         customer_list = []
         customers = self.context.get_all('customer')

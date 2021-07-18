@@ -24,13 +24,13 @@ class ProductService:
     def update_product(self, obj):
         if obj._id != "":
             product = self.get_product(obj._id)
-            if not product:
+            if product is None:
                 return False
         else:
             return False
         if obj.category_id != "":
             category = CategoryService().get_category(obj.category_id)
-            if not category:
+            if category is None:
                 return False
         name_exits = self.context.get_all_by_condition(
             "product", {"name": obj.name}).count()
@@ -41,7 +41,7 @@ class ProductService:
     def delete_product(self, obj):
         if obj._id != "":
             category = self.get_product(obj._id)
-            if not category:
+            if category is None:
                 return False
         else:
             return False
