@@ -13,15 +13,34 @@ class CustomerService():
 
     def add_customer(self, obj):
         name_exits = self.context.get_all_by_condition(
-            'customer', {'email': obj.name}).count()
-            
+            "customer", {"name": obj.name}).count()
+        if name_exits > 0:
+            return False
         self.context.save('customer', obj.__dict__)
+        return True
 
     def update_customer(self, obj):
+       if obj._id != "":
+            main_customer = self.get_customer(obj._id)
+            if main_customer is None:
+                return False
+        else:
+            return False
+       email_exits = self.context.get_all_by_condition(
+           "customer", {"email": obj.email}).count()
+       if main_customer.email != obj.email and email_exits > 0:
+           return False
         self.context.update('customer', obj.__dict__)
 
+
     def delete_customer(self, obj):
-        self.context.delete('customer', obj.__dict__)
+       if obj._id != "":
+            main_customer = self.get_customer(obj._id)
+            if main_customer is None:
+                return False
+        else:
+            return False
+       self.context.delete('customer', obj.__dict__)
 
     def get_customers(self):
         customer_list = []
