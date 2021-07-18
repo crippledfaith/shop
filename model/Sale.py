@@ -1,5 +1,4 @@
 from model.BaseModel import BaseModel
-import uuid
 
 
 class Sale(BaseModel):
