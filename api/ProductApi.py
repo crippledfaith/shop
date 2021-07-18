@@ -45,7 +45,7 @@ class ProductApi(Resource):
             list_of_products = self.service.get_products(category_id)
         elif product_id and not category_id:
             product = self.service.get_product(product_id)
-            if product == None:
+            if product is None:
                 return {}
             return product.__dict__
         return CommonHelper().objlist_to_dict(list_of_products)
