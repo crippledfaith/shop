@@ -25,7 +25,7 @@ class ProductService:
         main_product = None
         if obj._id != "":
             main_product = self.get_product(obj._id)
-            if product is None:
+            if main_product is None:
                 return False
         else:
             return False
