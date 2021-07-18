@@ -29,6 +29,8 @@ class CategoryService:
             catagory = self.get_category(obj._id)
             if not catagory:
                 return False
+        else:
+            return False
         if obj.parent_id != "":
             catagory = self.get_category(obj.parent_id)
             if not catagory:
@@ -41,6 +43,8 @@ class CategoryService:
             catagory = self.get_category(obj._id)
             if not catagory:
                 return False
+        else:
+            return False
         self.context.delete('category', obj.__dict__)
         return True
 
