@@ -22,7 +22,6 @@ class ProductService:
         return True
 
     def update_product(self, obj):
-        main_product = None
         if obj._id != "":
             main_product = self.get_product(obj._id)
             if main_product is None:

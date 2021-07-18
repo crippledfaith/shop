@@ -25,7 +25,6 @@ class CategoryService:
         return True
 
     def update_category(self, obj):
-        main_category = None
         if obj._id != "":
             main_category = self.get_category(obj._id)
             if main_category is None:
