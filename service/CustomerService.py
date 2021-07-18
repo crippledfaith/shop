@@ -12,6 +12,9 @@ class CustomerService():
         return cls.__instance
         
     def add_customer(self, obj):
+        name_exits = self.context.get_all_by_condition(
+            'customer', {'email': obj.name}).
+        )
         self.context.save('customer', obj.__dict__)
 
     def update_customer(self, obj):

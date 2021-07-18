@@ -19,7 +19,7 @@ delete_parser = reqparse.RequestParser()
 delete_parser.add_argument('_id', type=str, required=True)
 
 
-class CatagoryApi(Resource):
+class CategoryApi(Resource):
 
     def __init__(self) -> None:
         super().__init__()
@@ -29,7 +29,7 @@ class CatagoryApi(Resource):
         args = get_parser.parse_args()
         level = args['level']
         parent_id = args['parent_id']
-        if(not level):
+        if not level:
             list_of_categories = self.service.get_categories(0, None)
         else:
             list_of_categories = self.service.get_categories(level, parent_id)
