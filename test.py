@@ -5,7 +5,8 @@ from db_context. QueryContext import QueryContext
 from helper.CommonHelper import CommonHelper
 from service.CustomerService import CustomerService
 from model.Customer import Customer
-
+from model.Sale import Sale
+from service . SaleService import SaleService
 
 def add_category():
     name = input("Category name: ")
@@ -93,5 +94,26 @@ def get_customer():
     service = CustomerService()
     print(service.get_customer(id).__dict__)
 
-get_product()
+
+def add_sale():
+    customer_id = input('customer id: ')
+    discount = float(input('discount: '))
+    tax = float(input('tax: '))
+    delivery_charge = int(input('delivery charge: '))
+    payment_complete = input(f'payment complete[Y]: ').upper()
+    if payment_complete == 'Y':
+        is_paid = True
+    else:
+        is_paid = False
+    service = SaleService()
+    sale = Sale()
+    sale.customer_id = customer_id
+    sale.discount = discount
+    sale.tax = tax
+    sale.delivery_charge = delivery_charge
+    sale.is_paid = is_paid
+    service.add_sale(sale)
+
+add_sale()
+
 

@@ -14,34 +14,34 @@ class CategoryService:
 
     def add_category(self, obj):
         if obj.parent_id != "":
-            catagory = self.get_category(obj.parent_id)
-            if catagory is None:
+            category = self.get_category(obj.parent_id)
+            if category is None:
                 return False
-        nameexits = self.context.get_all_by_condition(
+        name_exits = self.context.get_all_by_condition(
             "category", {"name": obj.name}).count()
-        if nameexits > 0:
+        if name_exits > 0:
             return False
         self.context.save("category", obj.__dict__)
         return True
 
     def update_category(self, obj):
         if obj._id != "":
-            catagory = self.get_category(obj._id)
-            if catagory is None:
+            category = self.get_category(obj._id)
+            if not category:
                 return False
         else:
             return False
         if obj.parent_id != "":
-            catagory = self.get_category(obj.parent_id)
-            if catagory is None:
+            category = self.get_category(obj.parent_id)
+            if category is None:
                 return False
         self.context.update('category', obj.__dict__)
         return True
 
     def delete_category(self, obj):
         if obj._id != "":
-            catagory = self.get_category(obj._id)
-            if catagory is None:
+            category = self.get_category(obj._id)
+            if category is None:
                 return False
         else:
             return False

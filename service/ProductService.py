@@ -14,13 +14,9 @@ class ProductService:
         return cls.__instance
 
     def add_product(self, obj):
-        if obj.category_id != "":
-            catagory = CategoryService().get_category(obj.category_id)
-            if not catagory:
-                return False
-        nameexits = self.context.get_all_by_condition(
+        name_exits = self.context.get_all_by_condition(
             "product", {"name": obj.name}).count()
-        if nameexits > 0:
+        if name_exits > 0:
             return False
         self.context.save('product', obj.__dict__)
         return True
@@ -33,19 +29,19 @@ class ProductService:
         else:
             return False
         if obj.category_id != "":
-            catagory = CategoryService().get_category(obj.category_id)
-            if not catagory:
+            category = CategoryService().get_category(obj.category_id)
+            if not category:
                 return False
-        nameexits = self.context.get_all_by_condition(
+        name_exits = self.context.get_all_by_condition(
             "product", {"name": obj.name}).count()
-        if nameexits > 0:
+        if name_exits > 0:
             return False
         self.context.update('product', obj.__dict__)
 
     def delete_product(self, obj):
         if obj._id != "":
-            catagory = self.get_product(obj._id)
-            if not catagory:
+            category = self.get_product(obj._id)
+            if not category:
                 return False
         else:
             return False
