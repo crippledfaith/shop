@@ -6,7 +6,9 @@ from helper.CommonHelper import CommonHelper
 from service.CustomerService import CustomerService
 from model.Customer import Customer
 from model.Sale import Sale
-from service . SaleService import SaleService
+from service.CartService import CartService
+from model.Cart import Cart
+
 
 def add_category():
     name = input("Category name: ")
@@ -41,7 +43,7 @@ def add_products():
 
 
 def update_products():
-   return
+    return
 
 
 def get_product():
@@ -95,25 +97,11 @@ def get_customer():
     print(service.get_customer(id).__dict__)
 
 
-def add_sale():
-    customer_id = input('customer id: ')
-    discount = float(input('discount: '))
-    tax = float(input('tax: '))
-    delivery_charge = int(input('delivery charge: '))
-    payment_complete = input(f'payment complete[Y]: ').upper()
-    if payment_complete == 'Y':
-        is_paid = True
-    else:
-        is_paid = False
-    service = SaleService()
-    sale = Sale()
-    sale.customer_id = customer_id
-    sale.discount = discount
-    sale.tax = tax
-    sale.delivery_charge = delivery_charge
-    sale.is_paid = is_paid
-    service.add_sale(sale)
+# service = CartService()
+# cart = Cart()
+# sale = Sale()
+# sale.customer_id = 'a3ca102a-8190-4d97-a2e8-63fb72264304'
+# service.create_cart(sale)
+#
 
-add_sale()
-
-
+get_product()
