@@ -1,5 +1,5 @@
 from flask_restful import Api
-from api.CatagoryApi import CatagoryApi
+from api.CategoryApi import CategoryApi
 from api.ProductApi import ProductApi
 
 class RouteHelper:
@@ -9,5 +9,5 @@ class RouteHelper:
         self.api = api
     
     def register_apis(self):
-        self.api.add_resource(CatagoryApi,"/catagory")
+        self.api.add_resource(CategoryApi,"/catagory")
         self.api.add_resource(ProductApi,"/product")
